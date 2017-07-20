@@ -1,6 +1,6 @@
 import './bootstrap'
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('events-index', require('./components/EventsIndex.vue'));
 
 const app = new Vue({
   el: '#app'

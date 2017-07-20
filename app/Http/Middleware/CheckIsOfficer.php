@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CheckVerified
+class CheckIsOfficer
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class CheckVerified
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::user()->verified)
+        if(!Auth::user()->isOfficer)
         {
-            return redirect('NotVerified');
+            return "You are not an officer";
         }
 
         return $next($request);

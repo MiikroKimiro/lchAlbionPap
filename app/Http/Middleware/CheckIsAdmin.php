@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CheckVerified
+class CheckIsAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class CheckVerified
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::user()->verified)
+        if(!Auth::user()->isAdmin)
         {
-            return redirect('NotVerified');
+            return "You are not an Admin!";
         }
 
         return $next($request);
